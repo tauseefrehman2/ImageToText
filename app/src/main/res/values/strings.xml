@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">ImageToText</string>
+
+    <string name="app_ad_id" translatable="false">ca-app-pub-7155931151667823~4288741016</string>
+    <string name="banner_ad" translatable="false">ca-app-pub-7155931151667823/5715365146</string>
+    <string name="interstitial_ads" translatable="false">ca-app-pub-7155931151667823/3657811896</string>
+    <string name="interstitial_ads_test" translatable="false">ca-app-pub-3940256099942544/1033173712</string>
+
+
+</resources>

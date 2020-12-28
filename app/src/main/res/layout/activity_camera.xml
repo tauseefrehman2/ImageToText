@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/camera_rl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/camera_button_rl">
+
+        <androidx.camera.view.CameraView
+            android:id="@+id/camera_cv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:importantForAccessibility="no" />
+
+        <ProgressBar
+            android:id="@+id/camera_pb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:visibility="invisible" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/camera_button_rl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/camera_ad_container"
+        android:layout_centerVertical="true"
+        android:background="@color/colorLightGray"
+        android:padding="5dp">
+
+        <ImageView
+            android:id="@+id/camera_capture_iv"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/ic_vec_capture"
+            app:tint="@color/colorBlack" />
+
+        <ImageView
+            android:id="@+id/camera_rotate_iv"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="50dp"
+            android:layout_toEndOf="@id/camera_capture_iv"
+            android:src="@drawable/ic_vec_camera_rotate"
+            app:tint="@color/colorBlack" />
+
+        <ImageView
+            android:id="@+id/camera_captured_iv"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="50dp"
+            android:layout_toStartOf="@id/camera_capture_iv" />
+    </RelativeLayout>
+
+    <FrameLayout
+        android:id="@+id/camera_ad_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:minHeight="?android:actionBarSize" />
+</RelativeLayout>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/cust_history_select_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:padding="@dimen/_5ssp"
+        android:src="@drawable/ic_vec_select"
+        app:tint="@color/colorPrimaryDark" />
+
+    <TextView
+        android:id="@+id/cust_history_id_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="report id: 1" />
+
+    <com.borjabravo.readmoretextview.ReadMoreTextView
+        android:id="@+id/cust_history_content_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/cust_history_select_iv"
+        android:padding="@dimen/_5sdp"
+        android:text="Hello this is dummy text"
+        android:textSize="@dimen/_14ssp"
+        app:colorClickableText="@color/colorRedLight"
+        app:trimCollapsedText="less"
+        app:trimExpandedText="more"
+        app:trimLength="30"
+        app:trimMode="trimModeLength" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_1sdp"
+        android:layout_below="@id/cust_history_content_tv"
+        android:background="@color/colorMediumGray" />
+
+</RelativeLayout>
