@@ -13,8 +13,6 @@ import com.borjabravo.readmoretextview.ReadMoreTextView;
 import com.prepost.imagetotext.Models.ExtractedModel;
 import com.prepost.imagetotext.R;
 
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,7 +41,7 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.MyViewHo
     public HistoryAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
 
         View view = LayoutInflater.from(viewGroup.getContext())
-                .inflate(R.layout.cust_history_model, viewGroup, false);
+                .inflate(R.layout.cust_history, viewGroup, false);
 
         return new HistoryAdapter.MyViewHolder(view);
     }

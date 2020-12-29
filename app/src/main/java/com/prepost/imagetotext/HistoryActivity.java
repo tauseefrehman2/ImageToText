@@ -6,6 +6,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
 
 import com.prepost.imagetotext.Adapter.HistoryAdapter;
 import com.prepost.imagetotext.Models.ExtractedModel;
@@ -19,12 +21,17 @@ import static com.prepost.imagetotext.MainActivity.HISTORY_TEXT_CODE;
 public class HistoryActivity extends AppCompatActivity {
 
     public static String SET_HISTORY_CONTENT;
+    private TextView mNoHistory_tv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history);
+
         setTitle("History");
+
+        mNoHistory_tv = findViewById(R.id.history_no_content_tv);
+
         RecyclerView recyclerView = findViewById(R.id.history_rv);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
@@ -36,6 +43,7 @@ public class HistoryActivity extends AppCompatActivity {
         //Get All Data From Database
         models = Database.getInstance(this).extractedDAO().getAllData();
         adapter.addModel(models);
+        if (models.size() > 0) mNoHistory_tv.setVisibility(View.GONE);
 
         //Adapter Click Listener
         adapter.setOnItemClickListener(model -> {
