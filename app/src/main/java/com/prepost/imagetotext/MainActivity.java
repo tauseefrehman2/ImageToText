@@ -221,6 +221,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == RESULT_CANCELED) return;
+
         if (requestCode == EXTRACTED_TEXT_CODE) {
             String text = data != null ? data.getStringExtra(SET_EXTRACTED_TEXT) : null;
             content_et.setText(text);
@@ -235,21 +236,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         }
 
-        //this code is for load image from gallery and display in image view
-        if (requestCode == OPEN_GALLERY_REQUEST_CODE && resultCode == RESULT_OK && null != data) {
+            //this code is for load image from gallery and display in image view
+            if (requestCode == OPEN_GALLERY_REQUEST_CODE && resultCode == RESULT_OK && null != data) {
 
-            Uri source = data.getData();
-            try {
-                //tempBitmap is Immutable bitmap,
-                //cannot be passed to Canvas constructor
-                Bitmap tempBitmap = BitmapFactory.decodeStream(
-                        getContentResolver().openInputStream(source));
-                DetectTextFromImage(tempBitmap);
+                Uri source = data.getData();
+                try {
+                    //tempBitmap is Immutable bitmap,
+                    //cannot be passed to Canvas constructor
+                    Bitmap tempBitmap = BitmapFactory.decodeStream(
+                            getContentResolver().openInputStream(source));
+                    DetectTextFromImage(tempBitmap);
 
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
             }
-        }
     }
 
     @Override
