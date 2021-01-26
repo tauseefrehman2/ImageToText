@@ -157,6 +157,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void init() {
         Toolbar toolbar = findViewById(R.id.main_toolbar);
         setSupportActionBar(toolbar);
+        toolbar.setTitle("Home");
+        toolbar.setSubtitle("Extract text from any image");
         loadAds();
 
         content_et = findViewById(R.id.main_content_et);
@@ -236,21 +238,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         }
 
-            //this code is for load image from gallery and display in image view
-            if (requestCode == OPEN_GALLERY_REQUEST_CODE && resultCode == RESULT_OK && null != data) {
+        //this code is for load image from gallery and display in image view
+        if (requestCode == OPEN_GALLERY_REQUEST_CODE && resultCode == RESULT_OK && null != data) {
 
-                Uri source = data.getData();
-                try {
-                    //tempBitmap is Immutable bitmap,
-                    //cannot be passed to Canvas constructor
-                    Bitmap tempBitmap = BitmapFactory.decodeStream(
-                            getContentResolver().openInputStream(source));
-                    DetectTextFromImage(tempBitmap);
+            Uri source = data.getData();
+            try {
+                //tempBitmap is Immutable bitmap,
+                //cannot be passed to Canvas constructor
+                Bitmap tempBitmap = BitmapFactory.decodeStream(
+                        getContentResolver().openInputStream(source));
+                DetectTextFromImage(tempBitmap);
 
-                } catch (FileNotFoundException e) {
-                    e.printStackTrace();
-                }
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
             }
+        }
     }
 
     @Override

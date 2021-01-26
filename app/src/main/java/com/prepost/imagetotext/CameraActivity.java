@@ -173,7 +173,7 @@ public class CameraActivity extends AppCompatActivity implements View.OnClickLis
                 callToast("Permission Granted");
                 startCamera();
             } else {
-                callToast("Permission Not Granted By User");
+                callToast("Permission Not Granted");
                 this.finish();
             }
         }
@@ -263,11 +263,15 @@ public class CameraActivity extends AppCompatActivity implements View.OnClickLis
 
                 photoURI = FileProvider.getUriForFile(getApplicationContext(), BuildConfig.APPLICATION_ID + ".provider", file);
                 runOnUiThread(() -> {
-                    Glide.with(CameraActivity.this).load(photoURI)
-                            .circleCrop().into(capturedImage_iv);
 
+                    openEditingActivity();
                     progressBar.setVisibility(View.INVISIBLE);
-                    callToast("Click on Image to Extract Text");
+                    
+//                    Glide.with(CameraActivity.this).load(photoURI)
+//                            .circleCrop().into(capturedImage_iv);
+//                    Log.d(TAG, "onImageSaved: called");
+
+                    //callToast("Click on Image to Extract Text");
                 });
             }
 
