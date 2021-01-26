@@ -1,11 +1,14 @@
 package com.prepost.imagetotext;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
@@ -22,6 +25,13 @@ public class HistoryActivity extends AppCompatActivity {
 
     public static String SET_HISTORY_CONTENT;
     private TextView mNoHistory_tv;
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == android.R.id.home)
+            onBackPressed();
+        return super.onOptionsItemSelected(item);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,9 +65,12 @@ public class HistoryActivity extends AppCompatActivity {
 
     }
 
+    private static final String TAG = "HistoryActivity";
+
     @Override
     public void onBackPressed() {
         super.onBackPressed();
+        Log.d(TAG, "onBackPressed: pressed");
         finish();
     }
 }

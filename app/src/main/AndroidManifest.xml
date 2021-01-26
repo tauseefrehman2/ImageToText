@@ -29,7 +29,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".HistoryActivity" />
+        <activity
+            android:name=".HistoryActivity"
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".CameraActivity"
             android:theme="@style/AppTheme.NoActionBar2" />
