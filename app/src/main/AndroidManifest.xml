@@ -56,7 +56,7 @@
         </provider> <!-- Ads id -->
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-7155931151667823~4288741016" />
+            android:value="@string/app_ad_id" />
 
         <service android:name=".service.NotificationService">
             <intent-filter>
